@@ -2,7 +2,7 @@
 
 ```
 |-- projects
-|   |-- this-repo
+|   |-- php-docker
 |   |   |-- README.md
 |   |   |-- docker-compose.yml
 |   |   |-- apache...
