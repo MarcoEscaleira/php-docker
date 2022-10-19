@@ -1,0 +1,3 @@
+.DS_Store
+mariadb/data/*
+!mariadb/data/.gitkeep

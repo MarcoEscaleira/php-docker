@@ -1,0 +1,37 @@
+version: "3.9"
+
+x-dbname: &DB_NAME
+  littlemarco
+
+x-dbuser: &DB_USER
+  littlemarco
+
+x-dbpassword: &DB_PASSWORD
+  password1
+
+services:
+  web:
+    build: ./php-apache
+    environment:
+      DB_HOST: db
+      DB_NAME: *DB_NAME
+      DB_USER: *DB_USER
+      DB_PASSWORD: *DB_PASSWORD
+    volumes:
+      - ./php-apache/apache/sites-enabled:/etc/apache2/sites-enabled
+      - ../:/approot
+    links:
+      - db
+    ports:
+      - "80:80"
+  db:
+    image: mariadb:10
+    environment:
+      MARIADB_USER: *DB_USER
+      MARIADB_PASSWORD: *DB_PASSWORD
+      MARIADB_ROOT_PASSWORD: strongpassword
+      MARIADB_DATABASE: *DB_NAME
+    volumes:
+      - ./mariadb/data:/var/lib/mysql
+    ports:
+      - "3306:3306"
