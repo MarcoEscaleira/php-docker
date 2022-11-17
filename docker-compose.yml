@@ -1,13 +1,13 @@
 version: "3.9"
 
 x-dbname: &DB_NAME
-  littlemarco
+            my_database
 
 x-dbuser: &DB_USER
-  littlemarco
+            littlemarco
 
 x-dbpassword: &DB_PASSWORD
-  password1
+                password1
 
 services:
   web:
